@@ -3,317 +3,587 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Venue Finder App</title>
+  <title>VenueFinderNG - Find Your Perfect Event Space</title>
+  <meta name="description" content="Discover and book the best event venues in Nigeria. Quick, easy, and all in one place.">
+  
   <link rel="stylesheet" href="style.css" />
-
-  <!-- AOS Library CSS & JS -->
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  
+  <!-- AOS Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="#" class="nav-logo">
-        <img src="logo.jpg" alt="Venue Finder Logo" class="nav-logo-img" />
-        <span>Venue Finder</span>
+  <!-- ⭐ MODERN NAVBAR -->
+  <nav class="navbar-modern" id="navbar">
+    <div class="nav-wrapper">
+      <!-- Logo -->
+      <a href="#" class="logo-container">
+        <div class="logo-img-wrapper">
+          <img src="logo.jpg" alt="VenueFinderNG Logo" onerror="this.src='https://via.placeholder.com/50x50/8B0000/FFFFFF?text=VF'" />
+        </div>
+        <div class="logo-text">
+          <span class="logo-main">VenueFinder</span>
+          <span class="logo-sub">NG</span>
+        </div>
       </a>
 
-      <div class="hamburger" onclick="toggleMobileMenu(this)">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
-
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#features" onclick="closeMenu()">Features</a></li>
-        <li><a href="#faq" onclick="closeMenu()">FAQs</a></li>
-        <li><a href="#subscribe" onclick="closeMenu()">Subscribe</a></li>
+      <!-- Desktop Navigation -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li><a href="#faq" class="nav-link">FAQs</a></li>
+        <li><a href="#subscribe" class="nav-link">Subscribe</a></li>
       </ul>
 
+      <!-- CTA Buttons -->
+      <div class="nav-actions">
+        <a href="#subscribe" class="btn-download">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Download App</span>
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#features" class="mobile-link">Features</a>
+      <a href="#testimonials" class="mobile-link">Testimonials</a>
+      <a href="#faq" class="mobile-link">FAQs</a>
+      <a href="#subscribe" class="mobile-link">Subscribe</a>
+      <a href="#subscribe" class="mobile-link featured">Download App</a>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="features" class="hero" data-aos="fade-up">
-    <div class="text-block">
-      <h2>Find Your Perfect Venue</h2>
-      <p>
-        Explore top-rated event venues in your city — quick, easy, and all in one place.
-      </p>
-
-      <div class="store-buttons">
-        <a href="#"><img src="app-store-badge.png" alt="App Store" class="store-badge" /></a>
-        <a href="#"><img src="google-play-badge.png" alt="Google Play" class="store-badge" /></a>
-      </div>
+  <!-- ⭐ HERO SECTION WITH GLASSMORPHISM -->
+  <section id="features" class="hero-modern" data-aos="fade-up">
+    <div class="hero-bg">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
     </div>
 
-    <video class="app-preview" autoplay muted loop playsinline>
-    <source src="video.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+    <div class="hero-container">
+      <!-- Text Content -->
+      <div class="hero-text" data-aos="fade-right">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Nigeria's #1 Venue Booking Platform</span>
+        </div>
 
+        <h1 class="hero-title">
+          Find Your Perfect
+          <span class="gradient-text">Event Venue</span>
+        </h1>
+
+        <p class="hero-description">
+          Explore top-rated event venues across Nigeria — quick, easy, and all in one place. From weddings to conferences, we've got you covered.
+        </p>
+
+        <!-- Store Buttons -->
+        <div class="store-buttons">
+          <a href="#" class="store-btn apple" data-aos="fade-up" data-aos-delay="200">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            <div>
+              <small>Download on the</small>
+              <strong>App Store</strong>
+            </div>
+          </a>
+
+          <a href="#" class="store-btn google" data-aos="fade-up" data-aos-delay="300">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+            </svg>
+            <div>
+              <small>Get it on</small>
+              <strong>Google Play</strong>
+            </div>
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+          <div class="stat-item">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Venues</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-number">10K+</div>
+            <div class="stat-label">Happy Users</div>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Cities</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- App Preview Video -->
+      <div class="hero-media" data-aos="fade-left" data-aos-delay="200">
+        <div class="phone-mockup">
+          <video class="app-preview" autoplay muted loop playsinline>
+            <source src="video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
     </div>
   </section>
 
-<!-- Testimonial Carousel Section -->
-<section class="testimonial-section" data-aos="fade-up">
-  <h3>What People Are Saying</h3>
-
-  <div class="carousel-container">
-    <div class="testimonial-carousel" id="testimonialCarousel">
-      <div class="testimonial-card">
-        <img src="user1.jpeg" alt="User 1" class="testimonial-avatar" />
-        <p>"Venue Finder made booking my wedding venue effortless. Highly recommend!"</p>
-        <span class="testimonial-name">— Henry Benson, Lagos</span>
+  <!-- ⭐ FEATURES SECTION -->
+  <section class="features-section" data-aos="fade-up">
+    <div class="section-header">
+      <div class="section-badge">
+        <span>✨</span>
+        <span>Why Choose Us</span>
       </div>
-      <div class="testimonial-card">
-        <img src="user2.jpg" alt="User 2" class="testimonial-avatar" />
-        <p>"As an event planner, I’ve saved hours using this app. It’s a total game changer."</p>
-        <span class="testimonial-name">— Jeremiah Ederano, Ibadan</span>
+      <h2 class="section-title">Everything You Need in One App</h2>
+      <p class="section-subtitle">Discover amazing features that make venue booking effortless</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-icon">🔍</div>
+        <h3>Easy Search</h3>
+        <p>Find venues by location, capacity, price, and event type in seconds</p>
       </div>
-      <div class="testimonial-card">
-        <img src="user3.jpeg" alt="User 3" class="testimonial-avatar" />
-        <p>"From church meetings to conferences, Venue Finder always helps me find the right place."</p>
-        <span class="testimonial-name">— Fabian Ruth, Port Harcourt</span>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-icon">💳</div>
+        <h3>Instant Booking</h3>
+        <p>Book your perfect venue directly through the app with secure payment</p>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="feature-icon">⭐</div>
+        <h3>Verified Reviews</h3>
+        <p>Read authentic reviews from real customers to make informed decisions</p>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="feature-icon">📸</div>
+        <h3>Virtual Tours</h3>
+        <p>Explore venues with high-quality photos and 360° virtual tours</p>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="feature-icon">💬</div>
+        <h3>Direct Chat</h3>
+        <p>Communicate directly with venue owners to clarify details</p>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="feature-icon">🎯</div>
+        <h3>Smart Filters</h3>
+        <p>Advanced filters to find exactly what you're looking for</p>
       </div>
     </div>
-  </div>
-
-  <!-- Dots -->
-  <div class="carousel-dots" id="carouselDots">
-    <span class="dot" onclick="goToSlide(0)"></span>
-    <span class="dot" onclick="goToSlide(1)"></span>
-    <span class="dot" onclick="goToSlide(2)"></span>
-  </div>
-</section>
-
-
-  <!-- FAQ Section -->
-  <section id="faq" class="faq-section" data-aos="fade-up">
-    <h3>Frequently Asked Questions</h3>
-
-    <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>What is VenueFinderNG?</h4>
-      <p>VenueFinderNG is a platform (mobile app and website) that connects venue owners with event planners and customers looking to book event spaces in Nigeria </p>
-    </div>
-
-    <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>Who can use VenueFinderNG?</h4>
-      <p>Anyone can use the platform whether you're a venue owner listing your property or an event planner searching for venues. All users must register and agree to our Terms & Conditions.</p>
-    </div>
-
-    <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>What am I allowed to do on the platform?</h4>
-      <p>You can:
-        Create and manage listings.<br>
-        Browse available venues.<br>
-        Communicate with venue owners/ planners.<br>
-        Make or accept bookings.<br>
-        <b>You may not misuse the app, resell it, or tamper with the platform's design or code.</b>
-      </p>
-    </div>
-
-    <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>Do I need to create an account?</h4>
-      <p>Creating an account is optional for browsing, but required if you want to book or list venues.</p>
-    </div>
-
-    <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>What are the responsibilities of a venue owner?</h4>
-      <p>Venue owners must:<br>
-        Upload accurate and up-to-date listings.<br>
-      	Respond to booking inquiries promptly.<br>
-        Ensure images, prices, and availability are correct.
-      </p>
-    </div>
-
-    <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>What behaviors are prohibited?</h4>
-      <p>The following are not allowed:<br>
-          Posting fake or misleading listings.<br>
-          Impersonating another user.<br>
-          Using the app for illegal activity.<br>   
-          Uploading malware or attempting to hack the system.<br>
-          Promoting unrelated services.<br>
-          <b>Violations may lead to suspension or account deletion without notice.</b>
-      </p>
-    </div>
-
-    <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>Does VenueFinderNG take a commission from bookings?</h4>
-      <p>No. All transactions are between the event planner and the venue owner. VenueFinderNG does not collect commission unless stated otherwise in future updates.
-      </p>
-    </div>
-
-    <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>What if there's a dispute between a planner and a venue owner?</h4>
-      <p>VenueFinderNG is not liable for:<br>
-          Booking failures<br>
-          Disputes between use<br>
-          Payments made outside the app<br>
-          Event success or venue issues<br>
-          We recommend resolving issues through direct communication.
-      </p>
-    </div>
-
-    <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>Is my personal data safe?</h4>
-      <p>Yes. We only collect limited data (like your name, email, and phone number) to facilitate bookings.
-          We do not sell or share your data with third parties.
-      </p>
-    </div>
-
-    <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>Can my account be terminated?</h4>
-      <p>Yes. Your account may be suspended or removed if:<br>
- 	      You violate our terms.<br>
- 	      You upload false listings.<br>
- 	      We receive consistent user complaints.
-      </p>
-    </div>
-
-     <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>Do I own the content I upload?</h4>
-      <p>Yes, but by uploading photos or descriptions, you give VenueFinderNG permission to display and promote your content in the app and on social media.
-      </p>
-    </div>
-
-     <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>Will these terms ever change?</h4>
-      <p>Yes. We may update the Terms & Conditions as needed. Users will be notified via the app, SMS, or email. Continued use of the platform means you accept the updated terms.
-      </p>
-    </div>
-
-     <div class="faq-item" onclick="toggleFAQ(this)">
-      <h4>How do I contact VenueFinderNG support?</h4>
-      <p>If you have any questions or issues, contact us at <em>support@venuefinderng.com</em></p>
-    </div>
-    
   </section>
 
-  <!-- Newsletter Signup -->
-  <section id="subscribe" class="newsletter-section" data-aos="fade-up">
-    <h3>Stay Updated</h3>
-    <p>Be the first to hear about new venues and updates. Join our mailing list!</p>
-    <form class="newsletter-form">
-      <input type="email" placeholder="Enter your email" required />
-      <button type="submit">Subscribe</button>
-    </form>
+  <!-- ⭐ TESTIMONIALS CAROUSEL -->
+  <section id="testimonials" class="testimonials-modern" data-aos="fade-up">
+    <div class="section-header">
+      <div class="section-badge">
+        <span>💬</span>
+        <span>Testimonials</span>
+      </div>
+      <h2 class="section-title">What People Are Saying</h2>
+      <p class="section-subtitle">Don't just take our word for it — hear from our happy users</p>
+    </div>
+
+    <div class="testimonial-container">
+      <div class="testimonial-slider" id="testimonialSlider">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-slide active">
+          <div class="testimonial-card-modern">
+            <div class="quote-mark">"</div>
+            <p class="testimonial-text">
+              VenueFinder made booking my wedding venue effortless. The app is intuitive, the options are endless, and the customer service is top-notch. Highly recommend!
+            </p>
+            <div class="testimonial-author">
+              <img src="user1.jpeg" alt="Henry Benson" class="author-avatar" onerror="this.src='https://i.pravatar.cc/100?img=12'" />
+              <div class="author-info">
+                <h4>Henry Benson</h4>
+                <p>Lagos, Nigeria</p>
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-slide">
+          <div class="testimonial-card-modern">
+            <div class="quote-mark">"</div>
+            <p class="testimonial-text">
+              As an event planner, I've saved countless hours using this app. It's a total game changer for my business. I can compare venues, check availability, and book—all in minutes.
+            </p>
+            <div class="testimonial-author">
+              <img src="user2.jpg" alt="Jeremiah Ederano" class="author-avatar" onerror="this.src='https://i.pravatar.cc/100?img=33'" />
+              <div class="author-info">
+                <h4>Jeremiah Ederano</h4>
+                <p>Ibadan, Nigeria</p>
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-slide">
+          <div class="testimonial-card-modern">
+            <div class="quote-mark">"</div>
+            <p class="testimonial-text">
+              From church meetings to conferences, VenueFinder always helps me find the right place. The filters are so helpful, and the booking process is seamless. Love it!
+            </p>
+            <div class="testimonial-author">
+              <img src="user3.jpeg" alt="Fabian Ruth" class="author-avatar" onerror="this.src='https://i.pravatar.cc/100?img=5'" />
+              <div class="author-info">
+                <h4>Fabian Ruth</h4>
+                <p>Port Harcourt, Nigeria</p>
+                <div class="rating">⭐⭐⭐⭐⭐</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Arrows -->
+      <button class="slider-arrow prev" id="prevTestimonial" aria-label="Previous testimonial">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button class="slider-arrow next" id="nextTestimonial" aria-label="Next testimonial">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <!-- Dots Indicator -->
+      <div class="slider-dots" id="sliderDots">
+        <button class="dot active" data-slide="0"></button>
+        <button class="dot" data-slide="1"></button>
+        <button class="dot" data-slide="2"></button>
+      </div>
+    </div>
   </section>
 
-  
+  <!-- ⭐ FAQ SECTION -->
+  <section id="faq" class="faq-modern" data-aos="fade-up">
+    <div class="section-header">
+      <div class="section-badge">
+        <span>❓</span>
+        <span>FAQs</span>
+      </div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Everything you need to know about VenueFinderNG</p>
+    </div>
 
-  <footer class="footer">
-    &copy; 2025 Venue Finder NG. All rights reserved.
+    <div class="faq-container">
+      <div class="faq-item-modern">
+        <div class="faq-question">
+          <h4>What is VenueFinderNG?</h4>
+          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-answer">
+          <p>VenueFinderNG is a platform (mobile app and website) that connects venue owners with event planners and customers looking to book event spaces in Nigeria.</p>
+        </div>
+      </div>
+
+      <div class="faq-item-modern">
+        <div class="faq-question">
+          <h4>Who can use VenueFinderNG?</h4>
+          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-answer">
+          <p>Anyone can use the platform whether you're a venue owner listing your property or an event planner searching for venues. All users must register and agree to our Terms & Conditions.</p>
+        </div>
+      </div>
+
+      <div class="faq-item-modern">
+        <div class="faq-question">
+          <h4>What am I allowed to do on the platform?</h4>
+          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-answer">
+          <p>You can:</p>
+          <ul>
+            <li>Create and manage listings</li>
+            <li>Browse available venues</li>
+            <li>Communicate with venue owners/planners</li>
+            <li>Make or accept bookings</li>
+          </ul>
+          <p><strong>You may not</strong> misuse the app, resell it, or tamper with the platform's design or code.</p>
+        </div>
+      </div>
+
+      <div class="faq-item-modern">
+        <div class="faq-question">
+          <h4>Do I need to create an account?</h4>
+          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-answer">
+          <p>Creating an account is optional for browsing, but required if you want to book or list venues.</p>
+        </div>
+      </div>
+
+      <div class="faq-item-modern">
+        <div class="faq-question">
+          <h4>What are the responsibilities of a venue owner?</h4>
+          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-answer">
+          <p>Venue owners must:</p>
+          <ul>
+            <li>Upload accurate and up-to-date listings</li>
+            <li>Respond to booking inquiries promptly</li>
+            <li>Ensure images, prices, and availability are correct</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item-modern">
+        <div class="faq-question">
+          <h4>What behaviors are prohibited?</h4>
+          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-answer">
+          <p>The following are not allowed:</p>
+          <ul>
+            <li>Posting fake or misleading listings</li>
+            <li>Impersonating another user</li>
+            <li>Using the app for illegal activity</li>
+            <li>Uploading malware or attempting to hack the system</li>
+            <li>Promoting unrelated services</li>
+          </ul>
+          <p><strong>Violations may lead to suspension or account deletion without notice.</strong></p>
+        </div>
+      </div>
+
+      <div class="faq-item-modern">
+        <div class="faq-question">
+          <h4>Does VenueFinderNG take a commission from bookings?</h4>
+          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-answer">
+          <p>No. All transactions are between the event planner and the venue owner. VenueFinderNG does not collect commission unless stated otherwise in future updates.</p>
+        </div>
+      </div>
+
+      <div class="faq-item-modern">
+        <div class="faq-question">
+          <h4>What if there's a dispute between a planner and a venue owner?</h4>
+          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-answer">
+          <p>VenueFinderNG is not liable for:</p>
+          <ul>
+            <li>Booking failures</li>
+            <li>Disputes between users</li>
+            <li>Payments made outside the app</li>
+            <li>Event success or venue issues</li>
+          </ul>
+          <p>We recommend resolving issues through direct communication.</p>
+        </div>
+      </div>
+
+      <div class="faq-item-modern">
+        <div class="faq-question">
+          <h4>Is my personal data safe?</h4>
+          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. We only collect limited data (like your name, email, and phone number) to facilitate bookings. We do not sell or share your data with third parties.</p>
+        </div>
+      </div>
+
+      <div class="faq-item-modern">
+        <div class="faq-question">
+          <h4>Can my account be terminated?</h4>
+          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. Your account may be suspended or removed if:</p>
+          <ul>
+            <li>You violate our terms</li>
+            <li>You upload false listings</li>
+            <li>We receive consistent user complaints</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-cta" data-aos="fade-up">
+      <p>Still have questions?</p>
+      <a href="mailto:support@venuefinderng.com" class="contact-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <span>Contact Support</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ⭐ NEWSLETTER SECTION -->
+  <section id="subscribe" class="newsletter-modern" data-aos="fade-up">
+    <div class="newsletter-bg">
+      <div class="gradient-orb orb-4"></div>
+      <div class="gradient-orb orb-5"></div>
+    </div>
+
+    <div class="newsletter-content">
+      <div class="newsletter-icon">📧</div>
+      <h2>Stay Updated</h2>
+      <p>Be the first to hear about new venues, exclusive offers, and platform updates. Join our mailing list!</p>
+
+      <form class="newsletter-form-modern" id="newsletterForm">
+        <div class="form-group-newsletter">
+          <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          <input type="email" placeholder="Enter your email address" required />
+          <button type="submit" class="subscribe-btn">
+            <span>Subscribe</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+        <p class="privacy-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          We respect your privacy. Unsubscribe anytime.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ⭐ MODERN FOOTER -->
+  <footer class="footer-modern">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="logo.jpg" alt="VenueFinderNG" onerror="this.src='https://via.placeholder.com/50x50/8B0000/FFFFFF?text=VF'" />
+          <span>VenueFinderNG</span>
+        </div>
+        <p class="footer-tagline">Your trusted partner for finding the perfect event venue in Nigeria.</p>
+        
+        <!-- Social Links -->
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links-grid">
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="#about">About Us</a>
+          <a href="#careers">Careers</a>
+          <a href="#press">Press Kit</a>
+          <a href="#blog">Blog</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Support</h4>
+          <a href="#faq">FAQs</a>
+          <a href="mailto:support@venuefinderng.com">Contact Us</a>
+          <a href="#help">Help Center</a>
+          <a href="#feedback">Feedback</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <a href="#terms">Terms & Conditions</a>
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#cookies">Cookie Policy</a>
+          <a href="#refund">Refund Policy</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 VenueFinderNG. All rights reserved.</p>
+      <div class="footer-badges">
+        <span>Made with ❤️ in Nigeria</span>
+      </div>
+    </div>
   </footer>
 
-  <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top" id="backToTop">↑</a>
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
 
-
-
-  <script>
-    AOS.init();
-  </script>
-
-    <script>
-    const carousel = document.getElementById('testimonialCarousel');
-    const dots = document.querySelectorAll('.dot');
-    let currentSlide = 0;
-    let totalSlides = dots.length;
-    let isAutoScrolling = true;
-
-    function goToSlide(index) {
-      const containerWidth = carousel.offsetWidth;
-      carousel.scrollTo({
-        left: index * containerWidth,
-        behavior: 'smooth'
-      });
-      currentSlide = index;
-      updateDots();
-    }
-
-    function updateDots() {
-      dots.forEach((dot, idx) => {
-        dot.classList.toggle('active', idx === currentSlide);
-      });
-    }
-
-    function autoScroll() {
-      if (!isAutoScrolling) return;
-      currentSlide = (currentSlide + 1) % totalSlides;
-      goToSlide(currentSlide);
-    }
-
-    setInterval(autoScroll, 5000);
-
-    // Sync dots with manual swiping
-    carousel.addEventListener('scroll', () => {
-      const slideIndex = Math.round(carousel.scrollLeft / carousel.offsetWidth);
-      if (slideIndex !== currentSlide) {
-        currentSlide = slideIndex;
-        updateDots();
-      }
-    });
-
-    // Pause autoplay while user is swiping
-    carousel.addEventListener('touchstart', () => isAutoScrolling = false);
-    carousel.addEventListener('touchend', () => isAutoScrolling = true);
-
-    window.addEventListener('resize', () => goToSlide(currentSlide));
-  </script>
-
-  <script>
-    function toggleFAQ(el) {
-      el.classList.toggle("open");
-    }
-
-    function toggleMobileMenu(icon) {
-      const navLinks = document.getElementById('nav-links');
-      navLinks.classList.toggle('open');
-    }
-
-    function closeMenu() {
-    document.getElementById('nav-links').classList.remove('open');
-   }
-
-    // Auto-close mobile nav on scroll
-    window.addEventListener('scroll', () => {
-      const navLinks = document.getElementById('nav-links');
-      if (navLinks.classList.contains('open')) {
-        navLinks.classList.remove('open');
-      }
-    });
-
-    AOS.init({ duration: 800, once: true });
-  </script>
-
-  <script>
-    function toggleFAQ(el) {
-      el.classList.toggle("open");
-    }
-    AOS.init({ duration: 800, once: true });
-  </script>
-
-  <script>
-    const backToTop = document.getElementById('backToTop');
-
-    window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const pageHeight = document.documentElement.scrollHeight;
-    const windowHeight = window.innerHeight;
-
-    // Show when near bottom (e.g., within 500px)
-    if (scrollY + windowHeight >= pageHeight - 500) {
-      backToTop.classList.add('show');
-      } else {
-      backToTop.classList.remove('show');
-      }
-    });
-  </script>
-
-
-
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
